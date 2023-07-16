@@ -5,6 +5,6 @@ class BienvenidaPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text("Bienvenido"));
+    return const Center(child: Text("Bienvenido"));
   }
 }

@@ -5,15 +5,17 @@ class HomePage extends StatelessWidget {
   final userController = TextEditingController();
   final passwordController = TextEditingController();
 
+  HomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Login'),
+        title: const Text('Login'),
       ),
       body: Padding(
-        padding: EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -22,21 +24,21 @@ class HomePage extends StatelessWidget {
               image: AssetImage('lib/assets/imagenes/login.png'),
             ),
             TextField(
-              decoration: InputDecoration(hintText: 'Usuario'),
+              decoration: const InputDecoration(hintText: 'Usuario'),
               controller: userController,
             ),
             TextField(
-              decoration: InputDecoration(hintText: 'Contraseña'),
+              decoration: const InputDecoration(hintText: 'Contraseña'),
               obscureText: true,
               controller: passwordController,
             ),
-            SizedBox(height: 30.0),
+            const SizedBox(height: 30.0),
             ElevatedButton(
               onPressed: () {
                 validateLogin(
                     context, userController.text, passwordController.text);
               },
-              child: Text('Iniciar sesion'),
+              child: const Text('Iniciar sesion'),
             ),
           ],
         ),
@@ -50,7 +52,9 @@ void validateLogin(BuildContext context, String email, String password) {
     Navigator.pushNamed(context, MyRoutes.bienvenida.name);
   } else {
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Ocurrio un error con el usuario o contraseña')),
+      const SnackBar(
+        content: Text('Error, usuario y/o contraseña incorrectos'),
+      ),
     );
   }
 }
